@@ -11,6 +11,7 @@ from typing import Union, Any
 from dotenv import load_dotenv
 load_dotenv()
 
+'''Collect real time stock data and send to Kafka topic'''
 
 
 logger = logging.getLogger(__name__)
@@ -42,14 +43,14 @@ class StockFinanceMetrics:
         try:
             if stock_code_constant.STOCKCODE is not None:
                 if stock_code in stock_code_constant.STOCKCODE:
-                    # logger.info(f"Connect success to {self.nameSource}.")
+                    logger.info(f"Connect success to {self.nameSource}.")
                     return YahooFinanceAPI.Ticker(stock_code)
                 else: logger.info(f"Connect failed to {self.nameSource}.")
         except Exception as e: raise e
         
         
     def get_OHLCV_data_realtime(
-        self, stock_code: str, period: str = "1d", interval: str = "1m", auto_adjust: bool = False
+        self, stock_code: str, period: str = "5d", interval: str = "1m", auto_adjust: bool = False
     ) -> dict[str, Union[str, float]]:
         """ 
         Basic and important indicators when analyzing the price of a stock 
@@ -67,18 +68,23 @@ class StockFinanceMetrics:
         try:
             if stock_code in stock_code_constant.STOCKCODE:
                 yahooFinanceConnect = self.yahoo_finance_connect(stock_code)
-                # logger.info(f"Connect success to {self.nameSource}")
+                logger.info(f"Connect success to {self.nameSource}")
             else: logger.info(f"{stock_code} is not exists.")
                 
-            if period == "1d" and interval == "1m":
-                getStockInformationDF = yahooFinanceConnect.history(
-                    period=period,
-                    interval=interval,
-                    auto_adjust=auto_adjust
-                )
-            else:
-                logger.warning(f"period:{period} and interval:{interval} is not exists.")
-                return
+            getStockInformationDF = yahooFinanceConnect.history(
+                period = period,
+                interval = interval,
+                auto_adjust = auto_adjust
+            )
+            # if period == "1d" and interval == "1m":
+            #     getStockInformationDF = yahooFinanceConnect.history(
+            #         period=period,
+            #         interval=interval,
+            #         auto_adjust=auto_adjust
+            #     )
+            # else:
+            #     logger.warning(f"period:{period} and interval:{interval} is not exists.")
+            #     return
             
             getStockInformationDF = getStockInformationDF.reset_index()
             getStockInformationDF["ticker"] = stock_code
@@ -86,23 +92,26 @@ class StockFinanceMetrics:
             
             records_latest: pd.DataFrame = getStockInformationDF.tail(2)
             if records_latest is not None:
+                print("Data")
+                print(records_latest)
                 if records_latest.shape[0] == 2:
                     record_data = records_latest.head(1).to_json(
                         date_format='iso',
                         orient="records"            
                     )
+                    time.sleep(0.5)
+                    return json.loads(str(record_data)[1:-1])
                 else: 
                     logger.warning(f"The required record has not appeared yet.")
             else: 
                 logger.error(f"Dataframe is already exists.")
-            # time.sleep(seconds=0.5)
-            return json.loads(str(record_data)[1:-1])
+
         
         except Exception as e: raise e
     
     
     def get_OHLCVs_data_realtime(
-        self, topic: str, period: str = "1d", interval: str = "1m", auto_adjust: bool = False
+        self, topic: str, period: str = "5d", interval: str = "1m", auto_adjust: bool = False
     ) -> None:
         """ 
         Basic and important indicators when analyzing stock or asset prices, 
@@ -136,5 +145,5 @@ class StockFinanceMetrics:
         
 if __name__ == "__main__":
     stock = StockFinanceMetrics()
-    # print(stock.get_OHLCV_data_realtime("AAPL"))
+    print(stock.get_OHLCV_data_realtime("AAPL"))
     stock.get_OHLCVs_data_realtime("yfinance_stock")
