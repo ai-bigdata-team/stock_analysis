@@ -22,9 +22,9 @@ KAFKA_NODES = os.getenv("KAFKA_NODES")
 producer = KafkaProducer(bootstrap_servers=[KAFKA_NODES],
     value_serializer=lambda m: json.dumps(m).encode("utf-8")
 )
+'''Code for Finnhub API (realtime, using Websocket)'''
 
-
-class StockFinnhubMetrics:
+class StockProducer:
     """ 
     :param api_key:
     :param topic_name:
@@ -35,12 +35,12 @@ class StockFinnhubMetrics:
     
     def __init__(self, api_key: str, topic_name: str) -> None:
         self.api_key = api_key
-        StockFinnhubMetrics.topic_name = topic_name
+        StockProducer.topic_name = topic_name
         
         
     def finnhub_websocket_collect(self) -> None:
         """ 
-        Establish connection to yahoo finance api
+        Establish connection to stock api
         :param stock_code: Stock code for which you want to get data
         """
         
@@ -49,13 +49,13 @@ class StockFinnhubMetrics:
                 websocket.enableTrace(True)
                 ws = websocket.WebSocketApp(
                     f"wss://ws.finnhub.io?token={self.api_key}",
-                    on_message=StockFinnhubMetrics.on_message,
-                    on_error=StockFinnhubMetrics.on_error,
-                    on_close=StockFinnhubMetrics.on_close,
-                    on_ping=StockFinnhubMetrics.on_ping,
-                    on_pong=StockFinnhubMetrics.on_pong
+                    on_message=StockProducer.on_message,
+                    on_error=StockProducer.on_error,
+                    on_close=StockProducer.on_close,
+                    on_ping=StockProducer.on_ping,
+                    on_pong=StockProducer.on_pong
                 )
-                ws.on_open = StockFinnhubMetrics.on_open
+                ws.on_open = StockProducer.on_open
                 ws.run_forever(ping_interval=30)
                 
         except (
@@ -69,10 +69,6 @@ class StockFinnhubMetrics:
             
     @staticmethod
     def on_message(ws, message) -> None:
-        """ 
-        Establish connection to yahoo finance api
-        :param stock_code: Stock code for which you want to get data
-        """
         
         try:
             data = json.loads(message)
@@ -94,11 +90,11 @@ class StockFinnhubMetrics:
                         record_data["t"],
                         record_data["v"],
                     )
-                    if record_key not in StockFinnhubMetrics.seen_records:
-                        StockFinnhubMetrics.seen_records.add(record_key)
+                    if record_key not in StockProducer.seen_records:
+                        StockProducer.seen_records.add(record_key)
                     
                         producer.send(
-                            topic=StockFinnhubMetrics.topic_name,
+                            topic=StockProducer.topic_name,
                             value=record_data
                         )
                         # producer.flush()
@@ -112,29 +108,16 @@ class StockFinnhubMetrics:
         
     @staticmethod
     def on_error(ws, error) -> None: 
-        """ 
-        Establish connection to yahoo finance api
-        :param stock_code: Stock code for which you want to get data
-        """
         logger.error(f"WebSocket Error: {error}")
         
         
     @staticmethod
     def on_close(ws) -> None: 
-        """ 
-        Establish connection to yahoo finance api
-        :param stock_code: Stock code for which you want to get data
-        """
         logger.warning("WebSocket closed.")
     
     
     @staticmethod
-    def on_open(ws) -> None:
-        """ 
-        Establish connection to yahoo finance api
-        :param stock_code: Stock code for which you want to get data
-        """
-        
+    def on_open(ws) -> None:        
         for stock_code in stock_code_constant.STOCKCODE[:5]:
             message = f'{{"type":"subscribe","symbol":"{stock_code}"}}'
             ws.send(message)
@@ -162,7 +145,7 @@ class StockFinnhubMetrics:
                 
                 
 if __name__ == "__main__":
-    finnhubApi = StockFinnhubMetrics(
+    finnhubApi = StockProducer(
         api_key=os.getenv("FINNHUB_API_KEY"),
         topic_name="finnhub_stock"
     )

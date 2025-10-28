@@ -1,0 +1,1 @@
+STOCKCODE = ['AAA', 'AAM', 'AAT', 'ABS', 'HPG', 'VIC']
