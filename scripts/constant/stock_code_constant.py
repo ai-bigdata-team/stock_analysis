@@ -1,0 +1,1 @@
+STOCKCODE = ["BINANCE:BTCUSDT", "AAPL", 'AAA', 'AAM', 'AAT', 'ABS', 'HPG', 'VIC']
