@@ -87,3 +87,14 @@ bin/kafka-console-consumer.sh \
   --topic <Kafka_topic_name> \
   --from-beginning
 ```
+## Spark streaming 
+Get data from Kafka topics, analyze and save into cassandra
+```
+spark-submit \
+  --master local[*] \
+  --packages org.apache.spark:spark-sql-kafka-0-10_2.13:3.3.2,com.datastax.spark:spark-cassandra-connector_2.13:3.3.2 \
+  --conf spark.cassandra.connection.host=localhost \
+  --conf spark.cassandra.connection.port=9042 \
+  --conf spark.sql.extensions=com.datastax.spark.connector.CassandraSparkExtensions \
+  scripts/streaming/vnstock_kafka_to_cassandra.py
+```

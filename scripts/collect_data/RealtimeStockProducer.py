@@ -6,7 +6,7 @@ import finnhub
 import websocket
 import pandas as pd
 from kafka.producer import KafkaProducer
-from ..constant import stock_code_constant
+from ..constant import us_stock_code_constant as stock_code_constant
 from typing import Union, Any
 from dotenv import load_dotenv
 load_dotenv()
