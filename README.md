@@ -1,7 +1,11 @@
 # Stock analysis
 Bigdata project for a system designed to collect, store, analyze, and process stock market data
 
+__System Architecture Pipeline:__
 ![System Architecture Pipeline](./images/PipeLine.png)
+
+__Current Architecture Pipeline:__
+![Current Architecture Pipeline](./images/current_pipeline.png)
 
 ## Project Structure
 ```
@@ -75,6 +79,16 @@ bin/zookeeper-server-start.sh config/zookeeper.properties &
 bin/kafka-server-start.sh config/server.properties &
 ```
 
+Run python file to collect data by API:
+- realtime data by finnhub api:
+```
+python -m scripts.collect_data.RealtimeStockProducer
+```
+- batch data by vnstock api (crawl automatically after a time period):
+```
+python -m scripts.collect_data.StockProducer
+```
+
 Get Kafka topics 
 ```
 cd ~/kafka_2.13-3.3.2 
@@ -87,14 +101,22 @@ bin/kafka-console-consumer.sh \
   --topic <Kafka_topic_name> \
   --from-beginning
 ```
+
 ## Spark streaming 
-Get data from Kafka topics, analyze and save into cassandra
+Get data from Kafka topics, analyze and save into Google Cloud Storage
+
+Download gcs-connector and save to folder `jars`
+```
+mkdir -p jars && wget https://repo1.maven.org/maven2/com/google/cloud/bigdataoss/gcs-connector/hadoop3-2.2.11/gcs-connector-hadoop3-2.2.11-shaded.jar -O jars/gcs-connector-shaded.jar
+```
+
+Streaming:
 ```
 spark-submit \
   --master local[*] \
-  --packages org.apache.spark:spark-sql-kafka-0-10_2.13:3.3.2,com.datastax.spark:spark-cassandra-connector_2.13:3.3.2 \
-  --conf spark.cassandra.connection.host=localhost \
-  --conf spark.cassandra.connection.port=9042 \
-  --conf spark.sql.extensions=com.datastax.spark.connector.CassandraSparkExtensions \
-  scripts/streaming/vnstock_kafka_to_cassandra.py
+  --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.3.2 \
+  --jars jars/gcs-connector-shaded.jar \
+  scripts/streaming/finnhub_kafka_to_gcs.py \
+  --bucket-name stock_data_demo \
+  --gcs-key ~/gcs_bigdatastockanalysis.json
 ```

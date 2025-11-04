@@ -16,19 +16,10 @@ class VnstockKafkaStreaming:
     """
     
     def __init__(self, kafka_servers="localhost:9092"):
-        """
-        Khởi tạo streaming pipeline
-        
-        Args:
-            kafka_servers: Kafka bootstrap servers
-        """
         self.kafka_servers = kafka_servers
         self.spark = None
         
     def create_spark_session(self):
-        """Tạo Spark Session"""
-        print("Creating Spark Session for VNSTOCK streaming...")
-        
         self.spark = SparkSession.builder \
             .appName("Vnstock-Kafka-Streaming") \
             .config("spark.sql.shuffle.partitions", "4") \
@@ -40,20 +31,6 @@ class VnstockKafkaStreaming:
         return self.spark
     
     def get_vnstock_schema(self):
-        """
-        Schema cho VNSTOCK OHLCV messages
-        
-        Format từ StockProducer:
-        {
-            "time": "2024-10-29T00:00:00.000",
-            "open": 30500.0,
-            "high": 30800.0,
-            "low": 30400.0,
-            "close": 30750.0,
-            "volume": 2500000,
-            "ticker": "HPG"
-        }
-        """
         return StructType([
             StructField("time", StringType(), True),
             StructField("open", DoubleType(), True),
@@ -65,15 +42,6 @@ class VnstockKafkaStreaming:
         ])
     
     def read_from_kafka(self, topic):
-        """
-        Đọc streaming data từ Kafka topic
-        
-        Args:
-            topic: Kafka topic name
-            
-        Returns:
-            DataFrame: Streaming DataFrame
-        """
         print(f"Reading from Kafka topic: {topic}")
         
         kafka_df = self.spark \
@@ -90,15 +58,6 @@ class VnstockKafkaStreaming:
         return kafka_df
     
     def parse_vnstock_data(self, kafka_df):
-        """
-        Parse JSON data từ Kafka và tính toán các metrics
-        
-        Args:
-            kafka_df: Raw Kafka DataFrame
-            
-        Returns:
-            DataFrame: Parsed DataFrame với OHLCV data
-        """
         print("Parsing VNSTOCK data...")
         
         schema = self.get_vnstock_schema()
@@ -129,16 +88,6 @@ class VnstockKafkaStreaming:
         return ohlcv_df
     
     def create_aggregates(self, ohlcv_df, window_duration="5 minutes"):
-        """
-        Tạo windowed aggregates từ OHLCV data
-        
-        Args:
-            ohlcv_df: DataFrame với OHLCV data
-            window_duration: Window size (e.g., "5 minutes", "1 hour")
-            
-        Returns:
-            DataFrame: Aggregated DataFrame
-        """
         print(f"Creating {window_duration} aggregates...")
         
         aggregates_df = ohlcv_df \

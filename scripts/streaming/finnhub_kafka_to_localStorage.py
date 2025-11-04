@@ -6,10 +6,10 @@ PySpark Structured Streaming job: Kafka → Transform → Cassandra/Parquet
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import (
     col, from_json, explode, current_timestamp, 
-    avg, window, udf
+    avg, window, expr  # Thay udf bằng expr
 )
 from pyspark.sql.types import StringType
-import uuid
+# import uuid  # Không cần nữa
 
 # Import module xử lý của chúng ta
 from finnhub_processing import schema, process_stocktrade_data_realtime
@@ -66,9 +66,9 @@ def parse_kafka_messages(df, schema):
 
 
 def add_uuid_column(df):
-    """Thêm UUID column cho Cassandra primary key"""
-    uuid_udf = udf(lambda: str(uuid.uuid1()), StringType())
-    return df.withColumn("uuid", uuid_udf())
+    """Thêm UUID column cho Cassandra primary key - Dùng Spark SQL function"""
+    # Spark có built-in uuid() function, không cần Python UDF
+    return df.withColumn("uuid", expr("uuid()"))
 
 
 def write_to_cassandra(df, keyspace="stock_data", table="trades"):
@@ -114,11 +114,11 @@ def main():
     """Main function - orchestrate toàn bộ pipeline"""
     
     # 1. Tạo Spark session
-    print("🚀 Starting Spark Streaming Job...")
+    print("Starting Spark Streaming Job...")
     spark = create_spark_session()
     
     # 2. Đọc từ Kafka
-    print("📥 Reading from Kafka...")
+    print("Reading from Kafka...")
     kafka_df = read_from_kafka(
         spark, 
         kafka_servers="localhost:9092",
@@ -126,7 +126,7 @@ def main():
     )
     
     # 3. Parse JSON messages
-    print("🔧 Parsing Kafka messages...")
+    print("Parsing Kafka messages...")
     # Cần định nghĩa schema cho message wrapper
     from pyspark.sql.types import StructType, StructField, ArrayType
     
@@ -138,20 +138,20 @@ def main():
     trades_df = parse_kafka_messages(kafka_df, message_schema)
     
     # 4. Transform data với finnhub_processing module
-    print("⚙️ Transforming data...")
+    print("Transforming data...")
     transformed_df = process_stocktrade_data_realtime(trades_df)
     
-    # Thêm ingest timestamp và UUID
+    # Thêm ingest timestamp và UUID (dùng Spark SQL function thay vì Python UDF)
     final_df = transformed_df \
         .withColumn("ingest_timestamp", current_timestamp()) \
-        .withColumn("uuid", udf(lambda: str(uuid.uuid1()), StringType())())
+        .withColumn("uuid", expr("uuid()"))  # Fix: Dùng expr() thay vì lambda UDF
     
     # 5. Tạo aggregates
-    print("📊 Creating aggregates...")
+    print("Creating aggregates...")
     aggregates_df = create_aggregates(final_df)
     
     # 6A. Ghi vào Parquet (dễ test hơn Cassandra)
-    print("💾 Writing to Parquet...")
+    print("Writing to Parquet...")
     query1 = write_to_parquet(
         final_df,
         output_path="./output/trades",
@@ -169,9 +169,9 @@ def main():
     # query2 = write_to_cassandra(aggregates_df, table="aggregates")
     
     # 7. Đợi job chạy
-    print("✅ Streaming job is running...")
-    print("📍 Check output at: ./output/trades and ./output/aggregates")
-    print("🛑 Press Ctrl+C to stop")
+    print("Streaming job is running...")
+    print("Check output at: ./output/trades and ./output/aggregates")
+    print("Press Ctrl+C to stop")
     
     spark.streams.awaitAnyTermination()
 
