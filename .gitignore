@@ -4,3 +4,5 @@ __pycache__/
 checkpoints 
 output
 jars
+scripts/batch
+dags

@@ -11,28 +11,64 @@ __Current Architecture Pipeline:__
 ```
 stock_analysis/
 ├── .env                          # Environment variables (API keys, Kafka configs)
+├── .gitignore                    # Git ignore rules
 ├── requirements.txt              # Python dependencies
 ├── README.md                     # Project documentation
 │
 ├── images/                       # Documentation images
-│   └── PipeLine.png             # System architecture diagram
+│   ├── PipeLine.png             # System architecture diagram
+│   └── current_pipeline.png     # Current implementation pipeline
 │
-├── scripts/                      # Main application scripts
+├── docs/                        # Documentation
+│   ├── README.md                # Docs overview
+│   └── FLINK_ICEBERG_SETUP.md   # Flink + Iceberg setup guide
+│
+├── jars/                        # External JAR dependencies
+│   ├── gcs-connector-shaded.jar # Google Cloud Storage connector for Spark
+│   ├── iceberg-spark-runtime-*.jar  # Iceberg for Spark
+│   └── flink/                   # Flink connectors
+│       ├── flink-sql-connector-kafka-*.jar
+│       └── iceberg-flink-runtime-*.jar
+│
+├── checkpoints/                 # Spark streaming checkpoints
+│   ├── vnstock_raw/             # VNStock raw data checkpoints
+│   └── vnstock_aggregates/      # VNStock aggregates checkpoints
+│
+├── output/                      # Local output data (for testing)
+│   ├── vnstock_ohlcv/           # VNStock OHLCV output
+│   └── vnstock_aggregates/      # VNStock aggregates output
+│
+├── scripts/                     # Main application scripts
 │   ├── collect_data/            # Data collection modules
-│   │   ├── StockProducer.py     # Vnstock producer (polling)
-│   │   └── RealtimeStockProducer.py  # Finnhub producer (WebSocket)
+│   │   ├── StockProducer.py     # VNStock producer (polling API)
+│   │   └── RealtimeStockProducer.py  # Finnhub producer (WebSocket real-time)
 │   │
 │   ├── constant/                # Configuration constants
-│   │   └── stock_code_constant.py   # List of stock symbols
+│   │   ├── __init__.py
+│   │   ├── stock_code_constant.py     # Vietnam stock symbols (HPG, VIC, etc.)
+│   │   └── us_stock_code_constant.py  # US stock symbols (AAPL, GOOGL, etc.)
 │   │
-│   └── streaming/               # Spark streaming jobs (WIP)
+│   └── streaming/               # Spark Structured Streaming jobs
+│       ├── finnhub_kafka_to_gcs.py         # Finnhub → Kafka → GCS pipeline
+│       ├── finnhub_kafka_to_localStorage.py # Finnhub → Kafka → Local (testing)
+│       ├── vnstock_kafka_to_gcs.py         # VNStock → Kafka → GCS pipeline
+│       ├── vnstock_kafka_to_localStorage.py # VNStock → Kafka → Local (testing)
+│       └── vnstock_kafka_streaming.py      # VNStock streaming (legacy)
 │
 ├── tests/                       # Test scripts
-│   ├── test_vnstock_producer.py # Vnstock API tests
+│   ├── test_vnstock_producer.py # VNStock API integration tests
 │   └── yfinance_test.py         # Yahoo Finance API tests
 │
-├── references/                  # Reference materials and examples
-└── stock_api/                   # Additional API utilities
+├── stock_api/                   # API utilities and demos
+│   ├── demo.ipynb               # Jupyter notebook for API testing
+│   └── readme.md                # Stock API documentation
+│
+└── references/                  # Reference materials and example projects
+    ├── README.md                # References overview
+    ├── BigData_Tools_Frameworks.md
+    ├── Finance-Data-Ingestion-Pipeline-with-Kafka/
+    ├── financial-market-data-analysis/
+    └── finnhub-streaming-data-pipeline/
 ```
 
 ## System
@@ -67,6 +103,11 @@ Download Kafka (3.3.2, to be compatible with PySpark in the previous requirement
 wget https://archive.apache.org/dist/kafka/3.3.2/kafka_2.13-3.3.2.tgz
 tar -xzf kafka_2.13-3.3.2.tgz
 ``` 
+Download Flink 2.1.1
+```
+wget https://archive.apache.org/dist/flink/flink-2.1.1/flink-2.1.1-bin-scala_2.12.tgz
+tar -xvf flink-1.18.1-bin-scala_2.12.tgz
+```
 ## Collect data
 We offer two methods for collecting data:
 - Realtime streaming, using Finnhub API and WebSocket
@@ -109,8 +150,20 @@ Download gcs-connector and save to folder `jars`
 ```
 mkdir -p jars && wget https://repo1.maven.org/maven2/com/google/cloud/bigdataoss/gcs-connector/hadoop3-2.2.11/gcs-connector-hadoop3-2.2.11-shaded.jar -O jars/gcs-connector-shaded.jar
 ```
+Download iceberg-spark-runtime 
+```
+wget -q -O jars/iceberg-spark-runtime-3.3_2.12-1.4.2.jar     https://repo1.maven.org/maven2/org/apache/iceberg/iceberg-spark-runtime-3.3_2.12/1.4.2/iceberg-spark-runtime-3.3_2.12-1.4.2.jar
+```
+Download iceberg-flink-runtime
+```
+wget -q -O jars/flink/iceberg-flink-runtime-2.1.1_2.12-1.4.2.jar     https://repo1.maven.org/maven2/org/apache/iceberg/iceberg-flink-runtime-2.1.1/1.4.2/iceberg-flink-runtime-2.1.1-1.4.2.jar
+```
+Download flink-sql-connector
+```
+wget -q -O jars/flink/flink-sql-connector-kafka-3.3.2.jar     https://repo1.maven.org/maven2/org/apache/flink/flink-sql-connector-kafka/3.3.2/flink-sql-connector-kafka-3.3.2.jar
+```
 
-Streaming:
+### Finnhub streaming (US stocks - real-time trades)
 ```
 spark-submit \
   --master local[*] \
@@ -119,4 +172,33 @@ spark-submit \
   scripts/streaming/finnhub_kafka_to_gcs.py \
   --bucket-name stock_data_demo \
   --gcs-key ~/gcs_bigdatastockanalysis.json
+```
+
+### VNStock streaming (Vietnam stocks - OHLCV data)
+```
+spark-submit \
+  --master local[*] \
+  --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.3.2 \
+  --jars jars/gcs-connector-shaded.jar \
+  scripts/streaming/vnstock_kafka_to_gcs.py \
+  --bucket-name stock_data_demo \
+  --gcs-key ~/gcs_bigdatastockanalysis.json \
+  --kafka-topic vnstock_stock \
+  --window-duration "5 minutes"
+```
+
+### GCS Output Structure
+```
+gs://stock_data_demo/
+├── stock_data/                  # Finnhub data
+│   ├── raw/trades/
+│   │   └── symbol=AAPL/
+│   └── aggregates/ohlcv/
+│       └── symbol=AAPL/
+│
+└── vnstock_data/                # VNStock data
+    ├── raw/ohlcv/
+    │   └── symbol=HPG/
+    └── aggregates/ohlcv/
+        └── symbol=HPG/
 ```
