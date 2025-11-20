@@ -4,9 +4,7 @@ Test vnstock integration with StockProducer
 import sys
 import os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
 from vnstock import Vnstock
-
 # Test basic vnstock functionality
 def test_vnstock_connection():
     """Test connecting to vnstock API"""
@@ -70,7 +68,6 @@ def test_multiple_stocks():
                 
         except Exception as e:
             print(f"  ✗ {code}: Error - {e}")
-
 
 if __name__ == "__main__":
     print("="*50)
