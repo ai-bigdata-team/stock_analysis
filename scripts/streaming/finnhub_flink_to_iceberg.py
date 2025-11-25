@@ -45,7 +45,35 @@ class FlinkIcebergPipeline:
 
         # Create streaming environment
         self.env = StreamExecutionEnvironment.get_execution_environment()
+
+
+        # Add Iceberg JAR
+        import os
+        base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        print(f"Base dir: {base_dir}")
+        # Add ALL required JARs
+        jars_dir = os.path.join(base_dir, "jars")
+        required_jars = [
+            "iceberg-flink-runtime-2.1.1_2.12-1.4.2.jar",
+            "flink-sql-connector-kafka-3.3.2.jar",  # Kafka connector
+            "gcs-connector-shaded.jar"    # GCS connector
+        ]
         
+        jar_paths = []
+        for jar in required_jars:
+            if "flink" in jar:
+                jar_path = os.path.join(jars_dir, "flink", jar)
+            else:
+                jar_path = os.path.join(jars_dir, jar)
+            if not os.path.exists(jar_path):
+                print(f"WARNING: JAR not found: {jar_path}")
+            else:
+                jar_paths.append(f"file://{jar_path}")
+                print(f"Found JAR: {jar}")
+        
+        if jar_paths:
+            self.env.add_jars(";".join(jar_paths))  # Multiple JARs separated by ;
+            print(f"Added {len(jar_paths)} JARs to Flink")
         # Enable checkpointing for fault tolerance
         self.env.enable_checkpointing(30000)  # 30 seconds
         checkpoint_config = self.env.get_checkpoint_config()
