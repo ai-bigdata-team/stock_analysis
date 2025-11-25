@@ -50,6 +50,7 @@ def get_finnhub_schema():
     ])
 
 def process_raw_trades(df, checkpoint_dir, output_path):
+
     """
     Xử lý raw trades và lưu vào GCS - OPTIMIZED
     
@@ -84,6 +85,7 @@ def process_raw_trades(df, checkpoint_dir, output_path):
     return query, trades_df
 
 def process_aggregates(trades_df, checkpoint_dir, output_path):
+
     """
     Tính aggregates theo 1-minute windows và lưu vào GCS - OPTIMIZED
     
@@ -140,6 +142,7 @@ def get_args():
     return args
 
 def main():
+    
     """
     Main function
     
