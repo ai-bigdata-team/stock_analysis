@@ -4,7 +4,6 @@ Bigdata project for a system designed to collect, store, analyze, and process st
 __System Architecture Pipeline:__
 ![System Architecture Pipeline](./images/PipeLine.png)
 
-
 ## Project Structure
 ```
 stock_analysis/
