@@ -11,7 +11,6 @@ symbols = [item['symbol'] for item in symbols_data]
 nasdaq_symbols = [item['symbol'] for item in symbols_data if item['mic'] in ['XNAS','XNGS']]
 nyse_symbols = [item['symbol'] for item in symbols_data if item['mic'] == 'XNYS']
 
-# Danh sách API keys (17 keys)
 API_KEYS = [
     "API_KEY_1", 
     "API_KEY_2", 
@@ -32,7 +31,6 @@ API_KEYS = [
     "API_KEY_17"
 ]
 
-# Hàm chia list thành chunks
 def chunk_list(lst, size):
     return [lst[i:i+size] for i in range(0, len(lst), size)]
 
@@ -40,7 +38,6 @@ def write_log(message):
     with open("log_tiingo", "a", encoding="utf-8") as logf:
         logf.write(message + "\n")
 
-# Hàm xử lý 1 chunk với 1 API key
 def process_chunk(symbols, api_key, exchange_name, chunk_id):
     output_file = f"data/tiingo_{exchange_name}_{chunk_id}.jsonl"
     for sym in symbols:
@@ -71,7 +68,6 @@ def process_chunk(symbols, api_key, exchange_name, chunk_id):
 nasdaq_chunks = chunk_list(nasdaq_symbols, 500)
 nyse_chunks = chunk_list(nyse_symbols, 500)
 
-# Gom tất cả chunks lại với API keys
 tasks = []
 for i, chunk in enumerate(nasdaq_chunks):
     tasks.append((chunk, API_KEYS[i % len(API_KEYS)], "nasdaq", i+1))
@@ -83,6 +79,5 @@ for i, chunk in enumerate(nyse_chunks):
 with ThreadPoolExecutor(max_workers=len(API_KEYS)) as executor:
     futures = [executor.submit(process_chunk, *task) for task in tasks]
 
-    # Đợi tất cả hoàn thành
     for future in futures:
         future.result()
