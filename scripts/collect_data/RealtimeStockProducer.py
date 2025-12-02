@@ -112,10 +112,10 @@ class StockProducer:
 
 
     @staticmethod
-    def on_close(ws) -> None:
-        logger.warning("WebSocket closed.")
-
-
+    def on_close(ws, close_status_code, close_msg) -> None: 
+        logger.warning("WebSocket closed. code = {close_status_code}, msg: {close_msg}")
+    
+    
     @staticmethod
     def on_open(ws) -> None:
         for stock_code in stock_code_constant.STOCKCODE[:5]:

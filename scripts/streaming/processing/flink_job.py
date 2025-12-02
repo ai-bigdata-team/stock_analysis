@@ -32,7 +32,7 @@ def kafka_to_bigquery_job():
 
     env.add_jars(
         f"file://{os.path.join(JAR_DIR, 'flink-connector-kafka-4.0.1-2.0.jar')}",
-        f"file://{os.path.join(JAR_DIR, 'kafka-clients-4.0.0.jar')}"
+        f"file://{os.path.join(JAR_DIR, 'kafka-clients-4.0.1.jar')}"
     )
 
     # --- Parallelism ---

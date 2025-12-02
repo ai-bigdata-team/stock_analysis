@@ -1,0 +1,5 @@
+v1
+{"path":"file:///home/pavt1024/bigdata/stock_analysis/output/vnstock_ohlcv/symbol=AAT/part-00000-c16568ce-3bcc-4898-a1b6-dd106e632177.c000.snappy.parquet","size":2934,"isDir":false,"modificationTime":1761701300854,"blockReplication":1,"blockSize":33554432,"action":"add"}
+{"path":"file:///home/pavt1024/bigdata/stock_analysis/output/vnstock_ohlcv/symbol=ABS/part-00000-216f5105-8997-4be6-b248-79b920e98abd.c000.snappy.parquet","size":2935,"isDir":false,"modificationTime":1761701300902,"blockReplication":1,"blockSize":33554432,"action":"add"}
+{"path":"file:///home/pavt1024/bigdata/stock_analysis/output/vnstock_ohlcv/symbol=HPG/part-00000-1b24af33-0ec0-4adf-b322-a741318cbd1f.c000.snappy.parquet","size":2935,"isDir":false,"modificationTime":1761701300957,"blockReplication":1,"blockSize":33554432,"action":"add"}
+{"path":"file:///home/pavt1024/bigdata/stock_analysis/output/vnstock_ohlcv/symbol=VIC/part-00000-273d5733-9c93-4fbe-a09f-06ce8eac8f2f.c000.snappy.parquet","size":2935,"isDir":false,"modificationTime":1761701300984,"blockReplication":1,"blockSize":33554432,"action":"add"}
