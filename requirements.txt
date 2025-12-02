@@ -19,3 +19,6 @@ apache-flink-libraries==2.1.1
 pyiceberg==0.5.1
 py4j==0.10.9.7
 cloudpickle==2.2.1
+websockets==15.0.1
+python-snappy==0.7.3
+google-cloud-bigquery==3.38.0
