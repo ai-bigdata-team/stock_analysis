@@ -1,0 +1,141 @@
+networks:
+  bigdata-network:
+    driver: bridge
+
+services:
+  # ------------------ Spark ------------------
+  spark-master:
+    image: apache/spark:3.5.1
+    container_name: spark-master
+    environment:
+      - SPARK_MODE=master
+      - SPARK_MASTER_HOST=spark-master
+      - SPARK_MASTER_PORT=7077
+    networks:
+      - bigdata-network
+    ports:
+      - "8081:8080"  # Spark UI
+      - "7077:7077"  # Spark Master
+
+  spark-worker-driver:
+    image: apache/spark:3.5.1
+    container_name: spark-worker-driver
+    user: root
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER=spark://spark-master:7077
+      - SPARK_WORKER_CORES=2
+      - SPARK_WORKER_MEMORY=2G
+      - HOME=/tmp
+    networks:
+      - bigdata-network
+    volumes:
+      - ./code:/opt/spark/work-dir
+      - ./.env:/opt/spark/.env
+      - ./google-key.json:/opt/spark/google-key.json
+      - ./requirements_spark.txt:/opt/spark/requirements_spark.txt
+    command: ["/bin/bash", "-c", "pip install -r /opt/spark/requirements_spark.txt && spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077"]
+    depends_on:
+      - spark-master
+    ports:
+      - "4040:4040"
+
+  spark-worker-2:
+    image: apache/spark:3.5.1
+    container_name: spark-worker-2
+    user: root
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER=spark://spark-master:7077
+      - SPARK_WORKER_CORES=2
+      - SPARK_WORKER_MEMORY=2G
+      - HOME=/tmp
+    networks:
+      - bigdata-network
+    depends_on:
+      - spark-master
+    command: ["/bin/bash", "-c", "spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077"]
+
+  spark-worker-3:
+    image: apache/spark:3.5.1
+    container_name: spark-worker-3
+    user: root
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER=spark://spark-master:7077
+      - SPARK_WORKER_CORES=2
+      - SPARK_WORKER_MEMORY=2G
+      - HOME=/tmp
+    networks:
+      - bigdata-network
+    depends_on:
+      - spark-master
+    command: ["/bin/bash", "-c", "spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077"]
+
+  # ------------------ Kafka ------------------
+  kafka:
+    image: apache/kafka:3.7.0
+    container_name: kafka
+    ports:
+      - "19092:19092"
+      - "19093:19093"
+      - "19094:19094"
+    networks:
+      - bigdata-network
+    environment:
+      KAFKA_PROCESS_ROLES: "broker,controller"
+      KAFKA_NODE_ID: 1
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_CONTROLLER_QUORUM_VOTERS: "1@kafka:19094"
+      KAFKA_LISTENERS: "PLAINTEXT_HOST://0.0.0.0:19092,PLAINTEXT_INTERNAL://0.0.0.0:19093,CONTROLLER://0.0.0.0:19094"
+      KAFKA_ADVERTISED_LISTENERS: "PLAINTEXT_HOST://localhost:19092,PLAINTEXT_INTERNAL://kafka:19093"
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: "PLAINTEXT_HOST:PLAINTEXT,PLAINTEXT_INTERNAL:PLAINTEXT,CONTROLLER:PLAINTEXT"
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT_INTERNAL
+      KAFKA_LOG_DIRS: "/var/lib/kafka/data"
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_LOG_RETENTION_MS: 600000
+      KAFKA_LOG_RETENTION_BYTES: 10737418240
+
+  kafka-ui:
+    image: provectuslabs/kafka-ui:latest
+    container_name: kafka-ui
+    ports:
+      - "18080:8080"
+    networks:
+      - bigdata-network
+    depends_on:
+      - kafka
+    environment:
+      KAFKA_CLUSTERS_0_NAME: local
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:19093
+
+  # ------------------ Flink ------------------
+  flink-jobmanager:
+    image: flink:2.1.1-java11
+    container_name: flink-jobmanager
+    ports:
+      - "18081:8081"
+    networks:
+      - bigdata-network
+    command: jobmanager
+    environment:
+      FLINK_PROPERTIES: |
+        jobmanager.rpc.address: flink-jobmanager
+        taskmanager.numberOfTaskSlots: 2
+
+  flink-taskmanager:
+    image: flink:2.1.1-java11
+    container_name: flink-taskmanager
+    depends_on:
+      - flink-jobmanager
+    networks:
+      - bigdata-network
+    command: taskmanager
+    environment:
+      FLINK_PROPERTIES: |
+        jobmanager.rpc.address: flink-jobmanager
+        taskmanager.numberOfTaskSlots: 2
+        taskmanager.memory.process.size: 2048m

@@ -4,7 +4,7 @@ kafka-python==2.0.2
 apache-airflow-providers-apache-kafka==1.6.1
 apache-airflow-providers-apache-spark==4.11.3
 apache-airflow-providers-common-compat==1.2.2
-pyspark==3.3.2
+pyspark==3.5.1
 cassandra-driver==3.29.2
 python-dotenv==1.0.1
 minio==7.2.10
@@ -19,3 +19,6 @@ apache-flink-libraries==2.1.1
 pyiceberg==0.5.1
 py4j==0.10.9.7
 cloudpickle==2.2.1
+websockets==15.0.1
+python-snappy==0.7.3
+google-cloud-bigquery==3.38.0
