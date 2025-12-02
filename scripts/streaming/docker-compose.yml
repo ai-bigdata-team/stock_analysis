@@ -8,14 +8,13 @@ services:
     image: apache/spark:3.5.1
     container_name: spark-master
     environment:
-      - SPARK_MODE=master
       - SPARK_MASTER_HOST=spark-master
-      - SPARK_MASTER_PORT=7077
+    command: ["/bin/bash", "-c", "/opt/spark/bin/spark-class org.apache.spark.deploy.master.Master"]
     networks:
       - spark-network
     ports:
-      - "8081:8080"  # Spark UI
-      - "7077:7077"  # Spark Master
+      - "8081:8080"
+      - "7077:7077"
 
   spark-worker-driver:
     image: apache/spark:3.5.1
@@ -30,11 +29,11 @@ services:
     networks:
       - spark-network
     volumes:
-      - ./code:/opt/spark/work-dir
+      - ./:/opt/spark/work-dir
       - ./.env:/opt/spark/.env
       - ./google-key.json:/opt/spark/google-key.json
       - ./requirements_spark.txt:/opt/spark/requirements_spark.txt
-    command: ["/bin/bash", "-c", "pip install -r /opt/spark/requirements_spark.txt && spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077"]
+    command: ["/bin/bash", "-c", "pip install -r /opt/spark/requirements_spark.txt ; /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077"]
     depends_on:
       - spark-master
     ports:
@@ -54,7 +53,7 @@ services:
       - spark-network
     depends_on:
       - spark-master
-    command: ["/bin/bash", "-c", "spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077"]
+    command: ["/bin/bash", "-c", "/opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077"]
 
   spark-worker-3:
     image: apache/spark:3.5.1
@@ -70,7 +69,7 @@ services:
       - spark-network
     depends_on:
       - spark-master
-    command: ["/bin/bash", "-c", "spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077"]
+    command: ["/bin/bash", "-c", "/opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077"]
 
   # ----------------------------
   # KAFKA (KRaft Mode - No Zookeeper)
@@ -87,7 +86,7 @@ services:
       KAFKA_NODE_ID: 1
       KAFKA_PROCESS_ROLES: broker,controller
       KAFKA_LISTENERS: PLAINTEXT://:9092,CONTROLLER://:9093
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
       KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
       KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1

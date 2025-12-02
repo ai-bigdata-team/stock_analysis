@@ -14,6 +14,11 @@ from dotenv import load_dotenv
 load_dotenv()
 
 def create_spark_session(gcs_key_path):
+
+    gcs_jar_path = "/mnt/d/Project/stock_analysis/jars/gcs/gcs-connector-shaded.jar"
+
+    if not os.path.exists(gcs_jar_path):
+        raise FileNotFoundError(f"GCS JAR not found: {gcs_jar_path}")
     """
     Tạo Spark Session với GCS connector - OPTIMIZED cho high throughput
     
@@ -24,7 +29,9 @@ def create_spark_session(gcs_key_path):
     return SparkSession.builder \
         .appName("FinnhubKafkaToGCS") \
         .config("spark.jars.packages", 
-                "org.apache.spark:spark-sql-kafka-0-10_2.12:3.3.2") \
+            "org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.1,"
+            "com.google.cloud.spark:spark-3.5-bigquery:0.41.0") \
+        .config("spark.jars", gcs_jar_path) \
         .config("spark.hadoop.fs.gs.impl", "com.google.cloud.hadoop.fs.gcs.GoogleHadoopFileSystem") \
         .config("spark.hadoop.fs.AbstractFileSystem.gs.impl", "com.google.cloud.hadoop.fs.gcs.GoogleHadoopFS") \
         .config("spark.hadoop.google.cloud.auth.service.account.enable", "true") \
@@ -134,7 +141,7 @@ def process_aggregates(trades_df, checkpoint_dir, output_path):
 
 def get_args():
     parser = argparse.ArgumentParser(description="Code to load data from Kafka to GCS")
-    parser.add_argument("--bucket-name", default="stock_data_demo", 
+    parser.add_argument("--bucket-name", default="stock_data_hehehe", 
                         help="GCS bucket name (e.g., my-stock-datalake)")
     parser.add_argument("--gcs-key", default=os.environ["GCS_JSON_KEY"], 
                         help="Path to GCS service account JSON key file")
@@ -168,6 +175,8 @@ def main():
     # Validate key file exists
     if not os.path.exists(gcs_key_path):
         raise FileNotFoundError(f"GCS key file not found: {gcs_key_path}")
+    # Ensure BigQuery/Google libs can find credentials
+    os.environ.setdefault("GOOGLE_APPLICATION_CREDENTIALS", gcs_key_path)
     
     # Cấu hình GCS paths
     GCS_BUCKET = args.bucket_name  
@@ -204,7 +213,19 @@ def main():
         GCS_CHECKPOINT,
         GCS_BASE_PATH
     )
-    
+
+    bq_query = trades_df.writeStream \
+        .format("bigquery") \
+        .option("table", "stockanalysis-480013.stock_data_nnminh.finnhub_trades") \
+        .option("project", "stockanalysis-480013") \
+        .option("parentProject", "stockanalysis-480013") \
+        .option("credentialsFile", gcs_key_path) \
+        .option("temporaryGcsBucket", GCS_BUCKET) \
+        .outputMode("append") \
+        .trigger(processingTime="30 seconds") \
+        .option("checkpointLocation", f"{GCS_CHECKPOINT}/bq_trades") \
+        .start()
+
     # Xử lý aggregates
     agg_query = process_aggregates(
         trades_df,
@@ -226,8 +247,18 @@ def main():
     Streaming queries started...
     """)
     
-    # Chờ cả 2 queries
-    spark.streams.awaitAnyTermination()
+   
+    print("\n✅ Pipeline Started. Waiting for data...")
+    
+    try:
+        # Chờ bất kỳ stream nào bị lỗi
+        spark.streams.awaitAnyTermination()
+    except Exception as e:
+        print("\n" + "="*50)
+        print("❌ CRITICAL ERROR DETECTED!")
+        print("Một trong các Stream đã bị lỗi (nguyên nhân gốc):")
+        print(e)
+        print("="*50 + "\n")
 
 if __name__ == "__main__":
     main()
