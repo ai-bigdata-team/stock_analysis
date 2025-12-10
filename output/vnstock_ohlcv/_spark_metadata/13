@@ -1,3 +1,0 @@
-v1
-{"path":"file:///home/pavt1024/bigdata/stock_analysis/output/vnstock_ohlcv/symbol=HPG/part-00000-4bea78e7-253f-4235-a021-71df3bbe2cbf.c000.snappy.parquet","size":2935,"isDir":false,"modificationTime":1761700750921,"blockReplication":1,"blockSize":33554432,"action":"add"}
-{"path":"file:///home/pavt1024/bigdata/stock_analysis/output/vnstock_ohlcv/symbol=VIC/part-00000-eb7a88fc-89c1-45cd-b21f-157b67fb2ad8.c000.snappy.parquet","size":2935,"isDir":false,"modificationTime":1761700750953,"blockReplication":1,"blockSize":33554432,"action":"add"}

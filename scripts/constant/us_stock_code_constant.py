@@ -12,3 +12,7 @@ STOCKCODE = ['AAPL', 'MSFT', 'BAC', 'AMZN', 'IBM', 'GOOG', 'MO', 'DAL',
              'COST', 'PEP', 'TMUS', 'LIN', 'TXN', 'ANET', 'SYK',
              'PGR', 'SCHW', 'PLTR', 'TWLO', 'NOW', 'SQ', 'DOCU', 'HUBS', 'RNG', 'CRWD',
              'ZS', 'ROKU']
+
+CRYPTO_CODE = [
+    'BINANCE:BTCUSDT',
+]
