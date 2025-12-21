@@ -218,3 +218,4 @@ __marimo__/
 keys/
 jars/
 flink/
+tests/.streamlit/tiingo_nasdaq_1.jsonl
