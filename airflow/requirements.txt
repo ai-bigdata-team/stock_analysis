@@ -1,0 +1,7 @@
+apache-airflow==2.9.1
+apache-airflow-providers-apache-spark
+pyspark
+vnstock
+kafka-python
+pandas
+python-dotenv
