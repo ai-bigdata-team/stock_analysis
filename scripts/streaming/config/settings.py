@@ -31,5 +31,47 @@ class Settings:
     BQ_TABLE = os.getenv("BQ_TABLE", "trades")
     ENABLE_BIGQUERY = os.getenv("ENABLE_BIGQUERY", "true").lower() == "true"
 
+    STOCKCODE = [
+        # Crypto (Binance – top volume)
+        "BINANCE:BTCUSDT",
+        "BINANCE:ETHUSDT",
+        "BINANCE:BNBUSDT",
+        "BINANCE:SOLUSDT",
+        "BINANCE:XRPUSDT",
+        "BINANCE:ADAUSDT",
+        "BINANCE:DOGEUSDT",
+        "BINANCE:AVAXUSDT",
+        "BINANCE:LINKUSDT",
+        "BINANCE:MATICUSDT",
+        "BINANCE:DOTUSDT",
+        "BINANCE:LTCUSDT",
+        "BINANCE:TRXUSDT",
+
+        # US stocks (large cap, thanh khoản cao)
+        "NASDAQ:AAPL",
+        "NASDAQ:MSFT",
+        "NASDAQ:GOOGL",
+        "NASDAQ:AMZN",
+        "NASDAQ:NVDA",
+        "NASDAQ:META",
+        "NYSE:TSLA",
+
+        # Vietnam stocks (bluechip, HOSE)
+        "HOSE:HPG",
+        "HOSE:VIC",
+        "HOSE:VCB",
+        "HOSE:BID",
+        "HOSE:CTG",
+        "HOSE:VNM",
+        "HOSE:FPT",
+        "HOSE:MWG",
+        "HOSE:MSN",
+        "HOSE:AAA",
+        "HOSE:AAM",
+        "HOSE:AAT",
+        "HOSE:ABS",
+    ]
+
+
 
 settings = Settings()

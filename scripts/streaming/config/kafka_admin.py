@@ -1,7 +1,7 @@
 import logging
 from kafka.admin import KafkaAdminClient, NewTopic
 from kafka.errors import TopicAlreadyExistsError
-from ..config.kafka_config import kafka_config
+from config.kafka_config import kafka_config
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)

@@ -4,7 +4,8 @@ from pyflink.datastream.connectors.kafka import KafkaSource, KafkaOffsetsInitial
 from pyflink.common.serialization import SimpleStringSchema
 from pyflink.common.typeinfo import Types
 from kafka import KafkaConsumer as PyKafkaConsumer
-from ..config import kafka_config, settings
+from config.settings import settings
+from config.kafka_config import kafka_config
 from .parser import parse_market_message
 from .bigquery_sink import BigQuerySink, BigQuerySinkMapFunction
 import os
@@ -36,14 +37,11 @@ def kafka_to_bigquery_job():
     )
 
     # --- Parallelism ---
-    if settings.FLINK_STANDALONE:
-        env.set_parallelism(1)
-    else:
-        partition_count = get_kafka_partition_count(
-            kafka_config.TOPICS["market_data"],
-            kafka_config.ADMIN_CONFIG["bootstrap_servers"]
-        )
-        env.set_parallelism(partition_count)
+    partition_count = get_kafka_partition_count(
+        kafka_config.TOPICS["market_data"],
+        kafka_config.ADMIN_CONFIG["bootstrap_servers"]
+    )
+    env.set_parallelism(partition_count)
 
     # --- Kafka source ---
     kafka_source = (

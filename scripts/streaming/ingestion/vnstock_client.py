@@ -1,10 +1,10 @@
 import requests
 import time
 import logging
-from .kafka_producer import send_message
-from ..config.market_message import MarketMessage
-from ..config.settings import settings
-from ..config.kafka_config import kafka_config
+from ingestion.kafka_producer import send_message
+from config.market_message import MarketMessage
+from config.settings import settings
+from config.kafka_config import kafka_config
 
 logger = logging.getLogger(__name__)
 

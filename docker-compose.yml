@@ -38,7 +38,7 @@ services:
     depends_on:
       - spark-master
     ports:
-      - "4040:4040"
+      - "4048:4040"
 
   spark-worker-2:
     image: apache/spark:3.5.1

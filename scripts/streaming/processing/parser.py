@@ -1,4 +1,4 @@
-from .schemas import MarketMessageModel
+from processing.schemas import MarketMessageModel
 import datetime
 import json
 
