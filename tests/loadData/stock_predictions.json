@@ -1,0 +1,2477 @@
+[
+  {
+    "symbol": "ABCS",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "ABLLL",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "ABOS",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "ABTS",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "ACON",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "ACWI",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "ADBE",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "ADIL",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "ADUS",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "AERT",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "AFJKR",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "AFJKU",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "AFOS",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "AGMI",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "AGNCM",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "AIFF",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "AIFU",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "AIIO",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "AIPO",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "ALAR",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "ALCY",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "ALGS",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "ALIL",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "ALISU",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "ALLW",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "ALNT",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "ALVOW",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "ALXO",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "AMBA",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "AMCX",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "AMDL",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "AMID",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "AMSF",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "AMYY",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "AMZZ",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "AOTG",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "APED",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "APEI",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "APLM",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "APPN",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "ARKO",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "ARRY",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "ARVN",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "ASPI",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "ASRV",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "ATAT",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "ATEX",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "ATHE",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "ATRA",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "ATRO",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "ATXG",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "AZN",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "AZYY",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "BACQ",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "BAER",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "BAIG",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "BANR",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "BANX",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "BBCP",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "BCBP",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "BCGWW",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "BCML",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "BCRX",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "BCTXZ",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "BDTX",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "BEEZ",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "BELFA",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "BENFW",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "BHF",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "BHFAM",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "BHFAN",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "BIVIW",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "BKCH",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "BLFY",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "BLKB",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "BMGL",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "BMNG",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "BNC",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "BNTX",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "BOEU",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "BOSC",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "BOXL",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "BPYPM",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "BPYPN",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "BRKR",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "BRLSW",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "BSCU",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "BSJT",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "BSMQ",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "BTBD",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "BTCS",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "BTCT",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "BULL",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "BWAY",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "BYRN",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "BZUN",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "CBAT",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "CBFV",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "CBLL",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "CCLD",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "CETX",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "CFFI",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "CGC",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "CHAI",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "CHARU",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "CJMB",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "CLMB",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "CLNE",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "CLRO",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "CMPOV",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "CMPOW",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "CODA",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "COLL",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "COPJ",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "CPHC",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "CRCG",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "CRDF",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "CREG",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "CRMG",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "CRMT",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "CRSR",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "CRTO",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "CRVO",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "CRWL",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "CSGS",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "CSPI",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "CVLT",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "CYBR",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "DAK",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "DAKT",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "DFDV",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "DHIL",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "DLXY",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "DNTH",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "DOMO",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "DSGX",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "DSWL",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "DTCK",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "DUOL",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "DVLT",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "DVLU",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "DVOL",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "DVXK",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "DVXY",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "DVY",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "DYCQ",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "DYORU",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "ECPG",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "EEIQ",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "EGGQ",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "ELDN",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "ELTK",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "ELTX",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "EMPD",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "EPOW",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "ERIC",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "ETHI",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "EVCM",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "EVO",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "EXAS",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "FATN",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "FBGL",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "FBIO",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "FBLG",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "FCVT",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "FEMS",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "FEP",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "FEPI",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "FGL",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "FHB",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "FIGX",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "FIGXW",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "FINX",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "FITB",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "FMET",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "FMUB",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "FNK",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "FTAIM",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "FTFT",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "FTRE",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "FUSB",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "FUTG",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "FVN",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "FYT",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "GATE",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "GDEV",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "GEME",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "GEMI",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "GIGM",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "GILD",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "GIWWU",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "GLXY",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "GPCR",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "GPT",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "GQQQ",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "GRAB",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "GRNQ",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "GRRRW",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "GRVY",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "GSIW",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "GTENU",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "GTLB",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "GVLE",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "HBANM",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "HCM",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "HCMAU",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "HCWB",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "HEAL",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "HELE",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "HIMX",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "HLP",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "HSPOW",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "HSPT",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "HUBCZ",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "HUBG",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "HUIZ",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "IBRX",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "IFRX",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "IMMP",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "IND",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "INTA",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "INTU",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "INVZW",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "IONR",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "IONS",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "IONX",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "IPCXR",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "IPEXU",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "IPODU",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "ISHG",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "ISPO",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "ISRLU",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "IXUS",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "JBDI",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "JG",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "JYD",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "KBWY",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "KDKRW",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "KELYB",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "KLAC",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "KPLT",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "KRNY",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "KVACW",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "KYIVW",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "KZIA",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "LBTYB",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "LCCCU",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "LDSF",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "LEXX",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "LGCL",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "LGHL",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "LHSW",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "LI",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "LIND",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "LINK",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "LITM",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "LMTS",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "LNKB",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "LNT",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "LNZA",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "LOOP",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "LOVE",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "LPCN",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "LQDA",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "LRND",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "LUCY",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "LUCYW",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "LUNG",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "LWAC",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "LWLG",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "LYRA",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "MAPS",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "MATH",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "MBAVW",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "MBB",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "MBIO",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "MBOT",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "MCHPP",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "MCW",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "MDGL",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "MDXG",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "MEDP",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "MEHA",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "MEOH",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "MIGI",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "MITK",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "MNOV",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "MNTS",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "MRNO",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "MSAIW",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "MSEX",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "MSTR",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "MTCH",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "MTEST",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "MU",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "MUU",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "MWYN",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "MYCO",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "MYMI",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "NAVN",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "NBP",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "NDAA",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "NDSN",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "NETDU",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "NIVFW",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "NMTC",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "NOTV",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "NRSN",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "NRXPW",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "NTGR",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "NVNI",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "NVX",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "OACCU",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "OBIL",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "OBIO",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "OCSL",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "OCUL",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "OMSE",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "OPRT",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "OPTX",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "OPTXW",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "OPXS",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "OSCG",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "OSIS",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "OXLCZ",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "PANG",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "PATK",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "PAYO",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "PBMWW",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "PBOG",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "PCB",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "PCTTW",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "PDLB",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "PEGA",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "PELI",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "PFXNZ",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "PIII",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "PKBK",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "PLSE",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "PLUG",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "PMAX",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "PMEC",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "PNFP",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "PODC",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "PPHPU",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "PPHPW",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "PPIH",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "PPTA",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "PRDO",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "PRFZ",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "PRPH",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "PRPO",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "PSCT",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "PSKY",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "PSMT",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "PTIR",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "PTON",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "PUI",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "PXLW",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "PY",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "QALT",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "QB",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "QBIG",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "QMOM",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "QNRX",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "QQMG",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "QQQS",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "QQQY",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "RAAQ",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "RAPT",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "RAYA",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "RBNE",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "RDACR",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "RDIB",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "REBN",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "REFI",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "RFEM",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "RGP",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "RIBB",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "RILYK",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "RILYL",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "ROBT",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "ROMA",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "RPGL",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "RUSC",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "RVMD",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "RYAAY",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "SANA",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "SANG",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "SANM",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "SATS",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "SBET",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "SBFMW",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "SCAGW",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "SCDS",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "SCSC",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "SDG",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "SDSTW",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "SEAT",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "SEER",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "SEZL",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "SFST",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "SGLY",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "SHBI",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "SHFS",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "SIMAU",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "SINT",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "SJ",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "SKOR",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "SLMT",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "SLSN",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "SMLR",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "SMTI",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "SNOA",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "SOBR",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "SONO",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "SOUX",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "SPCB",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "SPEGU",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "SPOK",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "SPPL",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "SPWRW",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "SRTS",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "SRZNW",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "SSM",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "STKE",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "STRR",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "STRRP",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "SUGP",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "SUPN",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "SUPP",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "SURG",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "SWKHL",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "SZZLU",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "TARK",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "TARS",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "TAXS",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "TCBS",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "TCRX",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "TFNS",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "THFF",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "TNONW",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "TQQQ",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "TRIL",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "TSCO",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "TSHA",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "TSLR",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "TSLS",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "TVA",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "TWST",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "UBCP",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "UBRL",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "UBXG",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "UCRD",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "UHGWW",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "ULBI",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "ULVM",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "UMBF",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "USAU",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "USDX",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "USLM",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "VALN",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "VBNK",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "VCLT",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "VHC",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "VLGEA",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "VOD",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "VOR",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "VOTE",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "VRAR",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "VRCA",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "VSOL",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "VSTM",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "VTWO",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "VUZI",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "VWOB",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "WHLRP",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "WLAC",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "WORX",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "WRND",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "WTBN",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "WTF",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "XPM",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "XRPI",
+    "predict_1w": "up",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "XRPNU",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "XRPT",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "XTIA",
+    "predict_1w": "up",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "YB",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "YGMZ",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "YSPY",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "ZBAO",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "ZENA",
+    "predict_1w": "down",
+    "predict_1m": "up"
+  },
+  {
+    "symbol": "ZTRE",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "ZVZZC",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  },
+  {
+    "symbol": "ZYXI",
+    "predict_1w": "down",
+    "predict_1m": "down"
+  }
+]

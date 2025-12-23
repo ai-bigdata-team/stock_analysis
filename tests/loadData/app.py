@@ -340,72 +340,121 @@ st.markdown("""
         background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.3), transparent);
         margin: 24px 0;
     }
+    /* Prediction badges */
+    .prediction-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 14px;
+        border-radius: 20px;
+        font-size: 16px;
+        font-weight: 700;
+        margin: 4px;
+        backdrop-filter: blur(10px);
+    }
+    
+    .prediction-badge.up {
+        background: rgba(0, 230, 118, 0.15);
+        border: 1px solid #00e676;
+        color: #00e676;
+    }
+    
+    .prediction-badge.down {
+        background: rgba(255, 82, 82, 0.15);
+        border: 1px solid #ff5252;
+        color: #ff5252;
+    }
+    
+    .prediction-container {
+        background: rgba(26, 29, 53, 0.6);
+        border: 1px solid rgba(102, 126, 234, 0.2);
+        border-radius: 12px;
+        padding: 16px;
+        margin: 16px 0;
+    }
+    
+    .prediction-title {
+        font-size: 18px;
+        font-weight: 700;
+        color: #b794f6;
+        margin-bottom: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
 </style>
 """, unsafe_allow_html=True)
 
+import streamlit as st
+import pandas as pd
+import numpy as np
 
-# ==========================================
-# LOAD DATA
-# ==========================================
+@st.cache_data
+def load_predictions():
+    """Load stock predictions from JSON file"""
+    with open(r"F:\TinHoc\BinningMini\BigData_BTL\stock_analysis\tests\loadData\stock_predictions.json", "r") as f:
+        predictions = json.load(f)
+    return {item['symbol']: item for item in predictions}
+
+# Thêm sau dòng df_realtime = load_realtime_trades()
+predictions_dict = load_predictions()
 @st.cache_data
 def load_data():
     """
     Đọc dữ liệu từ file tiingo_nasdaq_1.jsonl và chuyển đổi
-    sang định dạng tương tự stocks_ohlcv_sample.parquet
-    """
-    # Đọc file JSONL (mỗi dòng là 1 JSON object)
-    data = []
-    with open("../.streamlit/tiingo_nasdaq_1.jsonl", "r") as f:
-        for line in f:
-            data.append(json.loads(line))
-
-    # Chuyển sang DataFrame
-    df = pd.DataFrame(data)
-
-    # Chuyển đổi tên cột để khớp với format cũ
-    df = df.rename(columns={
-        "symbol": "stock_code",
-        "date": "trade_timestamp"
-    })
-
-    # Chuyển đổi timestamp
+    # sang định dạng tương tự stocks_ohlcv_sample.parquet
+    # """
+    # # Đọc file JSONL (mỗi dòng là 1 JSON object)
+    # data = []
+    # with open(r"F:\TinHoc\BinningMini\BigData_BTL\stock_analysis\tests\loadData\tiingo_nasdaq_1.jsonl", "r") as f:
+    #     for line in f:
+    #         data.append(json.loads(line))
+    #
+    # # Chuyển sang DataFrame
+    # df = pd.DataFrame(data)
+    #
+    # # Chuyển đổi tên cột để khớp với format cũ
+    # df = df.rename(columns={
+    #     "symbol": "stock_code",
+    #     "date": "trade_timestamp"
+    # })
+    #
+    # # Chuyển đổi timestamp
+    # df["trade_timestamp"] = pd.to_datetime(df["trade_timestamp"])
+    #
+    # # Sắp xếp theo mã cổ phiếu và thời gian
+    # df = df.sort_values(["stock_code", "trade_timestamp"])
+    #
+    # # Tính toán các chỉ số tài chính giả lập cho mỗi mã
+    # if "EPS" not in df.columns:
+    #     import numpy as np
+    #
+    #     # Tạo các chỉ số cho từng mã cổ phiếu
+    #     all_stocks = []
+    #     for stock_code in df["stock_code"].unique():
+    #         df_stock = df[df["stock_code"] == stock_code].copy()
+    #
+    #         # Gen EPS với base ngẫu nhiên cho mỗi mã
+    #         base_eps = np.random.uniform(1000, 5000)
+    #         df_stock["EPS"] = np.random.uniform(base_eps * 0.9, base_eps * 1.1, len(df_stock)).round(0)
+    #         df_stock["PE"] = (df_stock["close"] * 1000 / df_stock["EPS"]).round(2)
+    #
+    #         df_stock["PB"] = np.random.uniform(1.0, 5.0, len(df_stock)).round(2)
+    #         df_stock["ROE"] = np.random.uniform(10, 30, len(df_stock)).round(2)
+    #         df_stock["ROA"] = np.random.uniform(5, 15, len(df_stock)).round(2)
+    #         df_stock["Beta"] = np.random.uniform(0.5, 2.5, len(df_stock)).round(2)
+    #         df_stock["MarketCap"] = df_stock["close"] * df_stock["volume"] * 100
+    #
+    #         all_stocks.append(df_stock)
+    #
+    #     df = pd.concat(all_stocks, ignore_index=True)
+    #     df = df.sort_values(["stock_code", "trade_timestamp"])
+    df = pd.read_parquet(r"F:\TinHoc\BinningMini\BigData_BTL\stock_analysis\tests\loadData\stocks_ohlcv_new.parquet")
     df["trade_timestamp"] = pd.to_datetime(df["trade_timestamp"])
-
-    # Sắp xếp theo mã cổ phiếu và thời gian
-    df = df.sort_values(["stock_code", "trade_timestamp"])
-
-    # Tính toán các chỉ số tài chính giả lập cho mỗi mã
-    if "EPS" not in df.columns:
-        import numpy as np
-
-        # Tạo các chỉ số cho từng mã cổ phiếu
-        all_stocks = []
-        for stock_code in df["stock_code"].unique():
-            df_stock = df[df["stock_code"] == stock_code].copy()
-
-            # Gen EPS với base ngẫu nhiên cho mỗi mã
-            base_eps = np.random.uniform(1000, 5000)
-            df_stock["EPS"] = np.random.uniform(base_eps * 0.9, base_eps * 1.1, len(df_stock)).round(0)
-            df_stock["PE"] = (df_stock["close"] * 1000 / df_stock["EPS"]).round(2)
-
-            df_stock["PB"] = np.random.uniform(1.0, 5.0, len(df_stock)).round(2)
-            df_stock["ROE"] = np.random.uniform(10, 30, len(df_stock)).round(2)
-            df_stock["ROA"] = np.random.uniform(5, 15, len(df_stock)).round(2)
-            df_stock["Beta"] = np.random.uniform(0.5, 2.5, len(df_stock)).round(2)
-            df_stock["MarketCap"] = df_stock["close"] * df_stock["volume"] * 100
-
-            all_stocks.append(df_stock)
-
-        df = pd.concat(all_stocks, ignore_index=True)
-        df = df.sort_values(["stock_code", "trade_timestamp"])
-
-    # return df
     return df.sort_values(["stock_code", "trade_timestamp"])
-
 
 @st.cache_data
 def load_realtime_trades():
-    df = pd.read_parquet("stocks_realtime_trades_sample.parquet")
+    df = pd.read_parquet(r"F:\TinHoc\BinningMini\BigData_BTL\stock_analysis\tests\loadData\stocks_realtime_trades_sample.parquet")
     df["trade_timestamp"] = pd.to_datetime(df["trade_timestamp"])
     return df.sort_values(["stock_code", "trade_timestamp"])
 
@@ -473,18 +522,6 @@ pct_change = (change / prev_row['close']) * 100
 
 col_header1, col_header2 = st.columns([3, 1])
 
-with col_header1:
-    st.markdown(f"""
-    <div class="stock-header">
-        <div class="stock-code">{selected_stock}</div>
-        <div>
-            <div style="font-size: 36px; font-weight: 700; color: #ffffff;">{last_row['close']:,.2f}</div>
-            <div style="font-size: 18px; font-weight: 600; color: {'#00e676' if change >= 0 else '#ff5252'};">
-                {'+' if change >= 0 else ''}{change:,.2f} ({'+' if pct_change >= 0 else ''}{pct_change:.2f}%)
-            </div>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
 
 # ==========================================
 # MAIN LAYOUT
@@ -697,3 +734,37 @@ with side_col:
                 st.metric("🔻 Thấp nhất", f"{df_trades_display['price'].min():,.2f}")
         else:
             st.info("Không có dữ liệu giao dịch realtime cho mã này")
+with col_header1:
+    st.markdown(f"""
+    <div class="stock-header">
+        <div class="stock-code">{selected_stock}</div>
+        <div>
+            <div style="font-size: 36px; font-weight: 700; color: #ffffff;">{last_row['close']:,.2f}</div>
+            <div style="font-size: 18px; font-weight: 600; color: {'#00e676' if change >= 0 else '#ff5252'};">
+                {'+' if change >= 0 else ''}{change:,.2f} ({'+' if pct_change >= 0 else ''}{pct_change:.2f}%)
+            </div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # THÊM PHẦN NÀY - Hiển thị dự đoán
+    if selected_stock in predictions_dict:
+        pred = predictions_dict[selected_stock]
+        pred_1w = pred['predict_1w']
+        pred_1m = pred['predict_1m']
+
+        st.markdown(f"""
+        <div class="prediction-container">
+            <div class="prediction-title">🔮 Dự đoán xu hướng</div>
+            <div style="display: flex; gap: 12px;">
+                <div class="prediction-badge {pred_1w.lower()}">
+                    <span>1 Tuần:</span>
+                    <span style="font-weight: 800;">{'📈 TĂNG' if pred_1w.upper() == 'UP' else '📉 GIẢM'}</span>
+                </div>
+                <div class="prediction-badge {pred_1m.lower()}">
+                    <span>1 Tháng:</span>
+                    <span style="font-weight: 800;">{'📈 TĂNG' if pred_1m.upper() == 'UP' else '📉 GIẢM'}</span>
+                </div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
