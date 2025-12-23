@@ -4,7 +4,6 @@ from ingestion.finnhub_client import start_finnhub
 # from ingestion.vnstock_client import start_vnstock_polling
 from config.settings import settings
 from config.kafka_admin import create_topic_if_not_exists
-from processing.flink_job import kafka_to_bigquery_job
 
 logging.basicConfig(level=settings.LOG_LEVEL)
 logger = logging.getLogger(__name__)

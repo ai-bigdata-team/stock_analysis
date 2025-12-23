@@ -14,6 +14,7 @@ class Settings:
     # Finnhub
     FINNHUB_API_KEY = os.getenv("FINNHUB_API_KEY", "")
     FINNHUB_WS_URL = os.getenv("FINNHUB_WS_URL", "wss://ws.finnhub.io")
+    TINGO_WS_URL = os.getenv("TINGO_API_KEY", "wss://api.tiingo.com/iex")
 
     # VNStock (optional)
     VNSTOCK_ENABLED = os.getenv("VNSTOCK_ENABLED", "false").lower() == "true"
@@ -48,13 +49,13 @@ class Settings:
         "BINANCE:TRXUSDT",
 
         # US stocks (large cap, thanh khoản cao)
-        "NASDAQ:AAPL",
-        "NASDAQ:MSFT",
-        "NASDAQ:GOOGL",
-        "NASDAQ:AMZN",
-        "NASDAQ:NVDA",
-        "NASDAQ:META",
-        "NYSE:TSLA",
+        "AAPL",
+        "MSFT",
+        "GOOGL",
+        "AMZN",
+        "NVDA",
+        "META",
+        "TSLA",
 
         # Vietnam stocks (bluechip, HOSE)
         "HOSE:HPG",
