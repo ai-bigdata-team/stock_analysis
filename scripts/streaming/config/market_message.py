@@ -70,3 +70,38 @@ def create_finnhub_message(data: dict) -> MarketMessage:
             "trade_id": data.get("t"),
         }
     )
+
+def create_tiingo_message(data: dict) -> MarketMessage:
+    """
+    Convert Tiingo OHLCV data → MarketMessage.
+
+    Tiingo fields:
+    divCash, adjClose, adjLow, adjHigh, volume, adjOpen,
+    open, date, low, splitFactor, close, high, adjVolume, symbol
+    """
+
+    return MarketMessage(
+        source="tiingo",
+        data_type="ohlcv",
+        symbol=data.get("symbol", ""),
+
+        # Canonical fields (prefer adjusted values if available)
+        price=data.get("adjClose") or data.get("close"),
+        volume=data.get("adjVolume") or data.get("volume"),
+        open=data.get("adjOpen") or data.get("open"),
+        high=data.get("adjHigh") or data.get("high"),
+        low=data.get("adjLow") or data.get("low"),
+        close=data.get("adjClose") or data.get("close"),
+
+        # Keep full Tiingo payload
+        raw_data=data,
+
+        # Tiingo-specific metadata
+        metadata={
+            "provider": "tiingo",
+            "date": data.get("date"),
+            "split_factor": data.get("splitFactor"),
+            "div_cash": data.get("divCash"),
+            "adjusted": True,
+        }
+    )

@@ -1,6 +1,6 @@
 from kafka import KafkaProducer
-from ..config.settings import settings
-from ..config.kafka_config import kafka_config
+from config.settings import settings
+from config.kafka_config import kafka_config
 import json
 import logging
 

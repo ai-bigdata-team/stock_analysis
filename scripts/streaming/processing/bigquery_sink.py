@@ -1,10 +1,10 @@
 from google.cloud import bigquery
 from google.oauth2 import service_account
 from typing import Dict
-from ..config.bigquery_config import bigquery_config
-from ..config.settings import settings
+from config.bigquery_config import bigquery_config
+from config.settings import settings
 from pyflink.datastream.functions import MapFunction
-from .parser import serialize_for_bigquery
+from processing.parser import serialize_for_bigquery
 import os
 import logging
 
