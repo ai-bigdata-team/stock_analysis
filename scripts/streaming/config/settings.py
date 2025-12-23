@@ -14,6 +14,7 @@ class Settings:
     # Finnhub
     FINNHUB_API_KEY = os.getenv("FINNHUB_API_KEY", "")
     FINNHUB_WS_URL = os.getenv("FINNHUB_WS_URL", "wss://ws.finnhub.io")
+    TINGO_WS_URL = os.getenv("TINGO_API_KEY", "wss://api.tiingo.com/iex")
 
     # VNStock (optional)
     VNSTOCK_ENABLED = os.getenv("VNSTOCK_ENABLED", "false").lower() == "true"
@@ -30,6 +31,48 @@ class Settings:
     BQ_DATASET = os.getenv("BQ_DATASET", "market_data")
     BQ_TABLE = os.getenv("BQ_TABLE", "trades")
     ENABLE_BIGQUERY = os.getenv("ENABLE_BIGQUERY", "true").lower() == "true"
+
+    STOCKCODE = [
+        # Crypto (Binance – top volume)
+        "BINANCE:BTCUSDT",
+        "BINANCE:ETHUSDT",
+        "BINANCE:BNBUSDT",
+        "BINANCE:SOLUSDT",
+        "BINANCE:XRPUSDT",
+        "BINANCE:ADAUSDT",
+        "BINANCE:DOGEUSDT",
+        "BINANCE:AVAXUSDT",
+        "BINANCE:LINKUSDT",
+        "BINANCE:MATICUSDT",
+        "BINANCE:DOTUSDT",
+        "BINANCE:LTCUSDT",
+        "BINANCE:TRXUSDT",
+
+        # US stocks (large cap, thanh khoản cao)
+        "AAPL",
+        "MSFT",
+        "GOOGL",
+        "AMZN",
+        "NVDA",
+        "META",
+        "TSLA",
+
+        # Vietnam stocks (bluechip, HOSE)
+        "HOSE:HPG",
+        "HOSE:VIC",
+        "HOSE:VCB",
+        "HOSE:BID",
+        "HOSE:CTG",
+        "HOSE:VNM",
+        "HOSE:FPT",
+        "HOSE:MWG",
+        "HOSE:MSN",
+        "HOSE:AAA",
+        "HOSE:AAM",
+        "HOSE:AAT",
+        "HOSE:ABS",
+    ]
+
 
 
 settings = Settings()
