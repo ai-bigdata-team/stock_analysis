@@ -1,3 +1,0 @@
-v1
-{"path":"file:///home/pavt1024/bigdata/stock_analysis/output/vnstock_ohlcv/symbol=AAT/part-00000-48a05f90-e95d-4baf-b1ec-c25bf54aec9a.c000.snappy.parquet","size":2934,"isDir":false,"modificationTime":1761702020900,"blockReplication":1,"blockSize":33554432,"action":"add"}
-{"path":"file:///home/pavt1024/bigdata/stock_analysis/output/vnstock_ohlcv/symbol=ABS/part-00000-fdb8f993-3160-48c2-8b44-2f191548a15d.c000.snappy.parquet","size":2935,"isDir":false,"modificationTime":1761702020924,"blockReplication":1,"blockSize":33554432,"action":"add"}

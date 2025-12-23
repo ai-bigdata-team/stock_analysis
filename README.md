@@ -2,7 +2,7 @@
 Bigdata project for a system designed to collect, store, analyze, and process stock market data
 
 __System Architecture Pipeline:__
-![System Architecture Pipeline](./images/PipeLine.png)
+![System Architecture Pipeline](./images/Pipeline_Final.png)
 
 ## Project Structure
 ```
