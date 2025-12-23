@@ -24,13 +24,14 @@ RUN pip install --no-cache-dir -r /opt/flink/requirements.txt
 # -------------------------------------------------
 # Ví dụ: scripts/streaming/processing/kafka_to_bq_job.py
 COPY scripts/ /opt/flink/scripts/
+ENV PYTHONPATH=/opt/flink/scripts/streaming
 
 # -------------------------------------------------
 # 4. Flink connectors / external jars
 # -------------------------------------------------
 # Kafka connector, BigQuery connector, etc.
 COPY jars/*.jar /opt/flink/lib/
-COPY jars/ opt/flink/jars/
+COPY jars/ /opt/flink/jars/
 
 # -------------------------------------------------
 # 5. Runtime directories (contract)
