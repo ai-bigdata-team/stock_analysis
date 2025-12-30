@@ -1,0 +1,37 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: flink-submit-job
+  namespace: bigdata
+spec:
+  backoffLimit: 1
+  template:
+    spec:
+      restartPolicy: Never
+
+      containers:
+        - name: submitter
+          image: my-flink:2.1.1
+          imagePullPolicy: IfNotPresent
+
+          command: ["/bin/bash", "/scripts/shell/submit_job_flink.sh"]
+
+          envFrom:
+            - configMapRef:
+                name: flink-env
+
+          volumeMounts:
+            - name: gcs-key
+              mountPath: /opt/flink/keys
+              readOnly: true
+
+            - name: checkpoints
+              mountPath: /opt/flink/checkpoints
+
+      volumes:
+        - name: gcs-key
+          configMap:
+            name: gcs-key
+
+        - name: checkpoints
+          emptyDir: {}

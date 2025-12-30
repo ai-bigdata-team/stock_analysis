@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: finnhub-producer
+  namespace: bigdata
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: finnhub-producer
+  template:
+    metadata:
+      labels:
+        app: finnhub-producer
+    spec:
+      containers:
+        - name: producer
+          image: my-flink:2.1.1
+          command:
+            - python
+            - /opt/flink/scripts/streaming/finnhub_to_kafka.py
+          envFrom:
+            - configMapRef:
+                name: flink-env
+
+          volumeMounts:
+            - name: gcs-key
+              mountPath: /opt/flink/keys
+              readOnly: true
+
+            - name: checkpoints
+              mountPath: /opt/flink/checkpoints
+              
+      volumes:
+        - name: gcs-key
+          configMap:
+            name: gcs-key
+
+        - name: checkpoints
+          emptyDir: {}

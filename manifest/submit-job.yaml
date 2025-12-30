@@ -1,0 +1,24 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: flink-submit-job
+  namespace: bigdata
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: submitter
+          image: my-flink:2.1.1
+          command: ["/bin/bash", "/scripts/submit.sh"]
+          volumeMounts:
+            - name: script
+              mountPath: /scripts
+          envFrom:
+            - configMapRef:
+                name: flink-config
+      volumes:
+        - name: script
+          configMap:
+            name: flink-submit-script
+            defaultMode: 0755

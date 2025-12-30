@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flink-taskmanager
+  namespace: bigdata
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: flink-taskmanager
+  template:
+    metadata:
+      labels:
+        app: flink-taskmanager
+    spec:
+      containers:
+        - name: taskmanager
+          image: my-flink:2.1.1
+          imagePullPolicy: IfNotPresent
+          command:
+            - /bin/bash
+            - -c
+            - |
+              exec /opt/flink/bin/taskmanager.sh start-foreground
+          envFrom:
+            - configMapRef:
+                name: flink-env
+          volumeMounts:
+            - name: gcs-key
+              mountPath: /opt/flink/keys
+              readOnly: true
+            - name: checkpoints
+              mountPath: /opt/flink/checkpoints
+      volumes:
+        - name: gcs-key
+          configMap:
+            name: gcs-key
+        - name: checkpoints
+          emptyDir: {}

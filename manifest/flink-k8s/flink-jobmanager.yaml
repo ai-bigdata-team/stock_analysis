@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flink-jobmanager
+  namespace: bigdata
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flink-jobmanager
+  template:
+    metadata:
+      labels:
+        app: flink-jobmanager
+    spec:
+      containers:
+        - name: jobmanager
+          image: my-flink:2.1.1
+          imagePullPolicy: IfNotPresent
+          command:
+            - /bin/bash
+            - -c
+            - |
+              exec /opt/flink/bin/jobmanager.sh start-foreground
+          ports:
+            - containerPort: 8081
+          envFrom:
+            - configMapRef:
+                name: flink-env
+          volumeMounts:
+            - name: gcs-key
+              mountPath: /opt/flink/keys
+              readOnly: true
+            - name: checkpoints
+              mountPath: /opt/flink/checkpoints
+      volumes:
+        - name: gcs-key
+          configMap:
+            name: gcs-key
+        - name: checkpoints
+          emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: flink-jobmanager
+  namespace: bigdata
+spec:
+  selector:
+    app: flink-jobmanager
+  ports:
+    - port: 8081
+      targetPort: 8081
